@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sigma</title>
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden; 
+        }
         body {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
             background-color: #080808;
+            position: relative; 
         }
         .container {
             text-align: center;
@@ -20,10 +24,12 @@
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 0 auto;
         }
         .buttons {
-            margin-top: 20px;
+            position: absolute;
+            bottom: 10px;
+            text-align: center;
+            width: 100%;
         }
         button {
             padding: 10px 20px;
@@ -36,14 +42,14 @@
 <body>
     <div class="container">
         <img id="image" src="images/skibidi.png" alt="Image">
-        <div class="buttons">
-            <button onclick="previousImage()">Previous</button>
-            <button onclick="nextImage()">Next</button>
-        </div>
+    </div>
+    <div class="buttons">
+        <button onclick="previousImage()">Previous</button>
+        <button onclick="nextImage()">Next</button>
     </div>
 
     <script>
-        const images = ['images/skibidi.png', 'images/guesty.png']; // Add your image paths here
+        const images = ['images/skibidi.png', 'images/guesty.png', 'images/gyat.webp'];
         let currentIndex = 0;
 
         function updateImage() {
