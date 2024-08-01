@@ -3,13 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sigma</title>
+    <title>Sigma</title>
     <style>
-        body {background-color: white;}
-        img {position: absolute; transform: translate(-50%, 50%); left: 50vw; height: 50vh;}
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #080808;
+        }
+        .container {
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <img src="skibidi.png" alt="skibidi">
+    <div class="container">
+        <img id="image" src="images/skibidi.png" alt="Image">
+        <div class="buttons">
+            <button onclick="previousImage()">Previous</button>
+            <button onclick="nextImage()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const images = ['images/skibidi.png', 'images/guesty.png']; // Add your image paths here
+        let currentIndex = 0;
+
+        function updateImage() {
+            document.getElementById('image').src = images[currentIndex];
+        }
+
+        function previousImage() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            updateImage();
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            updateImage();
+        }
+    </script>
 </body>
 </html>
